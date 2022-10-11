@@ -3,5 +3,9 @@ TODO:
   -Remove unnecessary exploits from main html page
   -Update images
   -Flags
+    -Command Injection (done)
+    -Cross-site Scripting
+    -File Upload
+    -SQL Injection
   -Basic installation and tests
   -Organize git repo
