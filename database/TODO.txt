@@ -1,0 +1,4 @@
+TODO:
+  1. Change names in database to other names
+  2. Consider changing passwords as well
+  3. Ensure variable declarations are correct

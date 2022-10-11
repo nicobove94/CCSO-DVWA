@@ -1,0 +1,6 @@
+Necessary CSS Changes:
+- Change the occurences of green to blue. The color scheme is generally green, black and white, so replacing green with blue gives 
+us Penn State colors.
+- The favicons should be changed to the CCSO logo. The Nittany Lion is also a valid option.
+- Visual Studio Code is giving some error warnings on some lines (marked in the code). These are marked with comments. It is possible
+that this is just an issue with the editor, but they should be investigated regardless.

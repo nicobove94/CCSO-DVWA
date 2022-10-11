@@ -1,0 +1,5 @@
+Necessary Image Changes:
+- logo.png: Has 'DVWA', should be changed to something CCSO related.
+- RandomStorm.png: Seems to be the company that made the DVWA. Can be changed to Penn State or something.
+- login_logo.png: Also has 'DVWA', should be changed to something CCSO related.
+Basically everything else can be left alone.
