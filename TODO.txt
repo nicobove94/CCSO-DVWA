@@ -4,3 +4,4 @@ TODO:
   -Update images
   -Flags
   -Basic installation and tests
+  -Organize git repo
