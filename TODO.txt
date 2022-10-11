@@ -1,0 +1,6 @@
+TODO:
+  -Change CSS colors
+  -Remove unnecessary exploits from main html page
+  -Update images
+  -Flags
+  -Basic installation and tests
