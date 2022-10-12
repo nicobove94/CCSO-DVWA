@@ -5,7 +5,7 @@ if( isset( $_GET[ 'Submit' ] ) ) {
 	$id = $_GET[ 'id' ];
 	$exists = false;
 
-	switch ($_DVWA['SQLI_DB']) {
+	switch ($_CCSO['SQLI_DB']) {
 		case MYSQL:
 			// Check database
 			$query  = "SELECT first_name, last_name FROM users WHERE user_id = '$id';";

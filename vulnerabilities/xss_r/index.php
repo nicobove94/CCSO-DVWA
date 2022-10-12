@@ -1,17 +1,17 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'CCSO_WEB_PAGE_TO_ROOT', '../../' );
+require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated', 'phpids' ) );
+ccsoPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = dvwaPageNewGrab();
+$page = ccsoPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: Reflected Cross Site Scripting (XSS)' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'xss_r';
 $page[ 'help_button' ]   = 'xss_r';
 $page[ 'source_button' ] = 'xss_r';
 
-dvwaDatabaseConnect();
+ccsoDatabaseConnect();
 
 $vulnerabilityFile = '';
 switch( $_COOKIE[ 'security' ] ) {
@@ -29,7 +29,7 @@ switch( $_COOKIE[ 'security' ] ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_r/source/{$vulnerabilityFile}";
+require_once CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/xss_r/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
@@ -53,14 +53,14 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss/' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/xss-filter-evasion-cheatsheet' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_scripting' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.cgisecurity.com/xss-faq.html' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'http://www.scriptalert1.com/' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/xss/' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'https://owasp.org/www-community/xss-filter-evasion-cheatsheet' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/Cross-site_scripting' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'http://www.cgisecurity.com/xss-faq.html' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'http://www.scriptalert1.com/' ) . "</li>
 	</ul>
 </div>\n";
 
-dvwaHtmlEcho( $page );
+ccsoHtmlEcho( $page );
 
 ?>

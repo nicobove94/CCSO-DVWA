@@ -1,17 +1,17 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'CCSO_WEB_PAGE_TO_ROOT', '../../' );
+require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated', 'phpids' ) );
+ccsoPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = dvwaPageNewGrab();
+$page = ccsoPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: File Upload' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'upload';
 $page[ 'help_button' ]   = 'upload';
 $page[ 'source_button' ] = 'upload';
 
-dvwaDatabaseConnect();
+ccsoDatabaseConnect();
 
 $vulnerabilityFile = '';
 switch( $_COOKIE[ 'security' ] ) {
@@ -29,7 +29,7 @@ switch( $_COOKIE[ 'security' ] ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/upload/source/{$vulnerabilityFile}";
+require_once CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/upload/source/{$vulnerabilityFile}";
 
 // Check if folder is writeable
 $WarningHtml = '';
@@ -65,11 +65,11 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload' ) . "</li>
-		<li>" . dvwaExternalLinkUrlGet( 'https://www.acunetix.com/websitesecurity/upload-forms-threat/' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload' ) . "</li>
+		<li>" . ccsoExternalLinkUrlGet( 'https://www.acunetix.com/websitesecurity/upload-forms-threat/' ) . "</li>
 	</ul>
 </div>";
 
-dvwaHtmlEcho( $page );
+ccsoHtmlEcho( $page );
 
 ?>

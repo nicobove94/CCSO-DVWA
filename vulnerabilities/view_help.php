@@ -1,11 +1,11 @@
 <?php
 
 define( 'CCSO_WEB_PAGE_TO_ROOT', '../' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated', 'phpids' ) );
+ccsoPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = dvwaPageNewGrab();
+$page = ccsoPageNewGrab();
 $page[ 'title' ] = 'Help' . $page[ 'title_separator' ].$page[ 'title' ];
 
 if (array_key_exists ("id", $_GET) &&
@@ -32,6 +32,6 @@ $page[ 'body' ] .= "
 	{$help}
 </div>\n";
 
-dvwaHelpHtmlEcho( $page );
+ccsoHelpHtmlEcho( $page );
 
 ?>

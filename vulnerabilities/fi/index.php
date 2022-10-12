@@ -1,17 +1,17 @@
 <?php
 
-define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
-require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+define( 'CCSO_WEB_PAGE_TO_ROOT', '../../' );
+require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
 
-dvwaPageStartup( array( 'authenticated', 'phpids' ) );
+ccsoPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = dvwaPageNewGrab();
+$page = ccsoPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: File Inclusion' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'fi';
 $page[ 'help_button' ]   = 'fi';
 $page[ 'source_button' ] = 'fi';
 
-dvwaDatabaseConnect();
+ccsoDatabaseConnect();
 
 $vulnerabilityFile = '';
 switch( $_COOKIE[ 'security' ] ) {
@@ -29,7 +29,7 @@ switch( $_COOKIE[ 'security' ] ) {
 		break;
 }
 
-require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/fi/source/{$vulnerabilityFile}";
+require_once CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/fi/source/{$vulnerabilityFile}";
 
 // if( count( $_GET ) )
 if( isset( $file ) )
@@ -39,6 +39,6 @@ else {
 	exit;
 }
 
-dvwaHtmlEcho( $page );
+ccsoHtmlEcho( $page );
 
 ?>
