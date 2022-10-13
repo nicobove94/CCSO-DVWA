@@ -1,6 +1,6 @@
 <?php
 
-if( !defined( 'CCSO_WEB_PAGE_TO_ROOT' ) ) {
+if( !defined( 'DVWA_WEB_PAGE_TO_ROOT' ) ) {
 	exit ("Nice try ;-). Use the file include next time!");
 }
 
@@ -22,8 +22,3 @@ echo base64_decode( $line4 );
 ?>
 
 <!-- 5.) The world isn't run by weapons anymore, or energy, or money. It's run by little ones and zeroes, little bits of data. It's all just electrons. -->
-
-<!-- 
-CCSO Notes:
-Still haven't really figured out what exactly is going on here. Not sure if these flags even need to be changed.
--->

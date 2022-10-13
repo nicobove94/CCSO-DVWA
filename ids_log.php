@@ -1,14 +1,14 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 
-define( 'CCSO_WEB_ROOT_TO_PHPIDS_LOG', 'external/phpids/' . ccsoPhpIdsVersionGet() . '/lib/IDS/tmp/phpids_log.txt' );
-define( 'CCSO_WEB_PAGE_TO_PHPIDS_LOG', CCSO_WEB_PAGE_TO_ROOT.CCSO_WEB_ROOT_TO_PHPIDS_LOG );
+define( 'DVWA_WEB_ROOT_TO_PHPIDS_LOG', 'external/phpids/' . dvwaPhpIdsVersionGet() . '/lib/IDS/tmp/phpids_log.txt' );
+define( 'DVWA_WEB_PAGE_TO_PHPIDS_LOG', DVWA_WEB_PAGE_TO_ROOT.DVWA_WEB_ROOT_TO_PHPIDS_LOG );
 
-ccsoPageStartup( array( 'authenticated', 'phpids' ) );
+dvwaPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = ccsoPageNewGrab();
+$page = dvwaPageNewGrab();
 $page[ 'title' ]   = 'PHPIDS Log' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'log';
 // $page[ 'clear_log' ]; <- Was showing error.
@@ -17,16 +17,16 @@ $page[ 'body' ] .= "
 <div class=\"body_padded\">
 	<h1>PHPIDS Log</h1>
 
-	<p>" . ccsoReadIdsLog() . "</p>
+	<p>" . dvwaReadIdsLog() . "</p>
 	<br /><br />
 
 	<form action=\"#\" method=\"GET\">
 		<input type=\"submit\" value=\"Clear Log\" name=\"clear_log\">
 	</form>
 
-	" . ccsoClearIdsLog() . "
+	" . dvwaClearIdsLog() . "
 </div>";
 
-ccsoHtmlEcho( $page );
+dvwaHtmlEcho( $page );
 
 ?>

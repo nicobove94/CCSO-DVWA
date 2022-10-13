@@ -1,12 +1,12 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/Parsedown.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/Parsedown.php';
 
-ccsoPageStartup( array( 'phpids' ) );
+dvwaPageStartup( array( 'phpids' ) );
 
-$page = ccsoPageNewGrab();
+$page = dvwaPageNewGrab();
 $page[ 'title' ]   = 'Instructions' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'instructions';
 
@@ -15,7 +15,7 @@ $docs = array(
 	'PDF'            => array( 'type' => 'html' ,'legend' => 'PDF Guide', 'file' => 'docs/pdf.html' ),
 	'changelog'      => array( 'type' => 'markdown', 'legend' => 'Change Log', 'file' => 'CHANGELOG.md' ),
 	'copying'        => array( 'type' => 'markdown', 'legend' => 'Copying', 'file' => 'COPYING.txt' ),
-	'PHPIDS-license' => array( 'type' => 'markdown', 'legend' => 'PHPIDS License', 'file' => CCSO_WEB_PAGE_TO_PHPIDS . 'LICENSE' ),
+	'PHPIDS-license' => array( 'type' => 'markdown', 'legend' => 'PHPIDS License', 'file' => DVWA_WEB_PAGE_TO_PHPIDS . 'LICENSE' ),
 );
 
 $selectedDocId = isset( $_GET[ 'doc' ] ) ? $_GET[ 'doc' ] : '';
@@ -24,7 +24,7 @@ if( !array_key_exists( $selectedDocId, $docs ) ) {
 }
 $readFile = $docs[ $selectedDocId ][ 'file' ];
 
-$instructions = file_get_contents( CCSO_WEB_PAGE_TO_ROOT.$readFile );
+$instructions = file_get_contents( DVWA_WEB_PAGE_TO_ROOT.$readFile );
 
 if ($docs[ $selectedDocId ]['type'] == "markdown") {
 	$parsedown = new ParseDown();
@@ -33,7 +33,7 @@ if ($docs[ $selectedDocId ]['type'] == "markdown") {
 
 /*
 function urlReplace( $matches ) {
-	return ccsoExternalLinkUrlGet( $matches[1] );
+	return dvwaExternalLinkUrlGet( $matches[1] );
 }
 
 // Make links and obfuscate the referer...
@@ -63,6 +63,6 @@ $page[ 'body' ] .= "
 	</span>
 </div>";
 
-ccsoHtmlEcho( $page );
+dvwaHtmlEcho( $page );
 
 ?>

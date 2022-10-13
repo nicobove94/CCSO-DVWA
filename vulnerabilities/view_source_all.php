@@ -1,11 +1,11 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '../' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '../' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 
-ccsoPageStartup( array( 'authenticated', 'phpids' ) );
+dvwaPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = ccsoPageNewGrab();
+$page = dvwaPageNewGrab();
 $page[ 'title' ] = 'Source' . $page[ 'title_separator' ].$page[ 'title' ];
 
 if (array_key_exists ("id", $_GET)) {
@@ -111,6 +111,6 @@ if (array_key_exists ("id", $_GET)) {
 	$page['body'] = "<p>Not found</p>";
 }
 
-ccsoSourceHtmlEcho( $page );
+dvwaSourceHtmlEcho( $page );
 
 ?>

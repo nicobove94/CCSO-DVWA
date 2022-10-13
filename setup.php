@@ -1,11 +1,11 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 
-ccsoPageStartup( array( 'phpids' ) );
+dvwaPageStartup( array( 'phpids' ) );
 
-$page = ccsoPageNewGrab();
+$page = dvwaPageNewGrab();
 $page[ 'title' ]   = 'Setup' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'setup';
 
@@ -20,16 +20,16 @@ if( isset( $_POST[ 'create_db' ] ) ) {
 	checkToken( $_REQUEST[ 'user_token' ], $session_token, 'setup.php' );
 
 	if( $DBMS == 'MySQL' ) {
-		include_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/DBMS/MySQL.php';
+		include_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/DBMS/MySQL.php';
 	}
 	elseif($DBMS == 'PGSQL') {
-		// include_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/DBMS/PGSQL.php';
-		ccsoMessagePush( 'PostgreSQL is not yet fully supported.' );
-		ccsoPageReload();
+		// include_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/DBMS/PGSQL.php';
+		dvwaMessagePush( 'PostgreSQL is not yet fully supported.' );
+		dvwaPageReload();
 	}
 	else {
-		ccsoMessagePush( 'ERROR: Invalid database selected. Please review the config file syntax.' );
-		ccsoPageReload();
+		dvwaMessagePush( 'ERROR: Invalid database selected. Please review the config file syntax.' );
+		dvwaPageReload();
 	}
 }
 
@@ -45,7 +45,7 @@ if( $DBMS == 'MySQL' ) {
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
-	<h1>Database Setup <img src=\"" . CCSO_WEB_PAGE_TO_ROOT . "ccso/images/spanner.png\" /></h1>
+	<h1>Database Setup <img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/spanner.png\" /></h1>
 
 	<p>Click on the 'Create / Reset Database' button below to create or reset your database.<br />
 	If you get an error make sure you have the correct user credentials in: <em>" . realpath(  getcwd() . DIRECTORY_SEPARATOR . "config" . DIRECTORY_SEPARATOR . "config.inc.php" ) . "</em></p>
@@ -59,7 +59,7 @@ $page[ 'body' ] .= "
 
 	{$SERVER_NAME}<br />
 	<br />
-	{$CCSOOS}<br />
+	{$DVWAOS}<br />
 	<br />
 	PHP version: <em>" . phpversion() . "</em><br />
 	{$phpDisplayErrors}<br />
@@ -78,10 +78,10 @@ $page[ 'body' ] .= "
 	{$MYSQL_SERVER}<br />
 	{$MYSQL_PORT}<br />
 	<br />
-	{$CCSORecaptcha}<br />
+	{$DVWARecaptcha}<br />
 	<br />
-	{$CCSOUploadsWrite}<br />
-	{$CCSOPHPWrite}<br />
+	{$DVWAUploadsWrite}<br />
+	{$DVWAPHPWrite}<br />
 	<br />
 	<br />
 	{$bakWritable}
@@ -104,6 +104,6 @@ allow_url_include = On</code></pre>
 	<hr />
 </div>";
 
-ccsoHtmlEcho( $page );
+dvwaHtmlEcho( $page );
 
 ?>

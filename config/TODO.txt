@@ -1,5 +1,0 @@
-TODO:
-Pretty sure this folder is good. A few notes:
-  1. Make sure variable declarations are right
-  2. Delete config.inc.php.dist
-  3. Generate capture keys

@@ -1,11 +1,11 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '../' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '../' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 
-ccsoPageStartup( array( 'authenticated', 'phpids' ) );
+dvwaPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = ccsoPageNewGrab();
+$page = dvwaPageNewGrab();
 $page[ 'title' ] .= 'Source' . $page[ 'title_separator' ].$page[ 'title' ];
 
 if (array_key_exists ("id", $_GET) && array_key_exists ("security", $_GET)) {
@@ -51,12 +51,12 @@ if (array_key_exists ("id", $_GET) && array_key_exists ("security", $_GET)) {
 			$vuln = "Unknown Vulnerability";
 	}
 
-	$source = @file_get_contents( CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/source/{$security}.php" );
+	$source = @file_get_contents( DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/source/{$security}.php" );
 	$source = str_replace( array( '$html .=' ), array( 'echo' ), $source );
 
 	$js_html = "";
-	if (file_exists (CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/source/{$security}.js")) {
-		$js_source = @file_get_contents( CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/source/{$security}.js" );
+	if (file_exists (DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/source/{$security}.js")) {
+		$js_source = @file_get_contents( DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/{$id}/source/{$security}.js" );
 		$js_html = "
 		<h2>vulnerabilities/{$id}/source/{$security}.js</h2>
 		<div id=\"code\">
@@ -92,6 +92,6 @@ if (array_key_exists ("id", $_GET) && array_key_exists ("security", $_GET)) {
 	$page['body'] = "<p>Not found</p>";
 }
 
-ccsoSourceHtmlEcho( $page );
+dvwaSourceHtmlEcho( $page );
 
 ?>

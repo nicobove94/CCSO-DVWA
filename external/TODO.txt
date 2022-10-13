@@ -1,3 +1,0 @@
-TODO:
-1. Go through PHPIDS (PHP-Intrusion Detection System). More can be found here:  https://github.com/PHPIDS/PHPIDS
-2. I don't believe the recaptcha folder needs to be changed. We just need to make sure everything here lines up with the recaptcha sections of the config directory.

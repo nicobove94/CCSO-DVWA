@@ -1,11 +1,11 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '' );
-require_once ccso_WEB_PAGE_TO_ROOT . 'CCSO/includes/ccsoPage.inc.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 
-ccsoPageStartup( array( 'phpids' ) );
+dvwaPageStartup( array( 'phpids' ) );
 
-ccsoDatabaseConnect();
+dvwaDatabaseConnect();
 
 if( isset( $_POST[ 'Login' ] ) ) {
 	// Anti-CSRF
@@ -28,25 +28,25 @@ if( isset( $_POST[ 'Login' ] ) ) {
 
 	$query = ("SELECT table_schema, table_name, create_time
 				FROM information_schema.tables
-				WHERE table_schema='{$_CCSO['db_database']}' AND table_name='users'
+				WHERE table_schema='{$_DVWA['db_database']}' AND table_name='users'
 				LIMIT 1");
 	$result = @mysqli_query($GLOBALS["___mysqli_ston"],  $query );
 	if( mysqli_num_rows( $result ) != 1 ) {
-		ccsoMessagePush( "First time using ccso.<br />Need to run 'setup.php'." );
-		ccsoRedirect( ccso_WEB_PAGE_TO_ROOT . 'setup.php' );
+		dvwaMessagePush( "First time using DVWA.<br />Need to run 'setup.php'." );
+		dvwaRedirect( DVWA_WEB_PAGE_TO_ROOT . 'setup.php' );
 	}
 
 	$query  = "SELECT * FROM `users` WHERE user='$user' AND password='$pass';";
 	$result = @mysqli_query($GLOBALS["___mysqli_ston"],  $query ) or die( '<pre>' . ((is_object($GLOBALS["___mysqli_ston"])) ? mysqli_error($GLOBALS["___mysqli_ston"]) : (($___mysqli_res = mysqli_connect_error()) ? $___mysqli_res : false)) . '.<br />Try <a href="setup.php">installing again</a>.</pre>' );
 	if( $result && mysqli_num_rows( $result ) == 1 ) {    // Login Successful...
-		ccsoMessagePush( "You have logged in as '{$user}'" );
-		ccsoLogin( $user );
-		ccsoRedirect( ccso_WEB_PAGE_TO_ROOT . 'index.php' );
+		dvwaMessagePush( "You have logged in as '{$user}'" );
+		dvwaLogin( $user );
+		dvwaRedirect( DVWA_WEB_PAGE_TO_ROOT . 'index.php' );
 	}
 
 	// Login failed
-	ccsoMessagePush( 'Login failed' );
-	ccsoRedirect( 'login.php' );
+	dvwaMessagePush( 'Login failed' );
+	dvwaRedirect( 'login.php' );
 }
 
 $messagesHtml = messagesPopAllToHtml();
@@ -66,9 +66,9 @@ echo "<!DOCTYPE html>
 
 		<meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\" />
 
-		<title>Login :: Damn Vulnerable Web Application (ccso) v" . ccsoVersionGet() . "</title>
+		<title>Login :: Damn Vulnerable Web Application (DVWA) v" . dvwaVersionGet() . "</title>
 
-		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . CCSO_WEB_PAGE_TO_ROOT . "ccso/css/login.css\" />
+		<link rel=\"stylesheet\" type=\"text/css\" href=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/css/login.css\" />
 
 	</head>
 
@@ -80,7 +80,7 @@ echo "<!DOCTYPE html>
 
 	<br />
 
-	<p><img src=\"" . CCSO_WEB_PAGE_TO_ROOT . "ccso/images/login_logo.png\" /></p>
+	<p><img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/login_logo.png\" /></p>
 
 	<br />
 
@@ -120,12 +120,12 @@ echo "<!DOCTYPE html>
 	<br />
 	<br />
 
-	<!-- <img src=\"" . CCSO_WEB_PAGE_TO_ROOT . "ccso/images/RandomStorm.png\" /> -->
+	<!-- <img src=\"" . DVWA_WEB_PAGE_TO_ROOT . "dvwa/images/RandomStorm.png\" /> -->
 	</div > <!--<div id=\"content\">-->
 
 	<div id=\"footer\">
 
-	<p>" . ccsoExternalLinkUrlGet( 'https://github.com/digininja/ccso/', 'Damn Vulnerable Web Application (ccso)' ) . "</p>
+	<p>" . dvwaExternalLinkUrlGet( 'https://github.com/digininja/DVWA/', 'Damn Vulnerable Web Application (DVWA)' ) . "</p>
 
 	</div> <!--<div id=\"footer\"> -->
 

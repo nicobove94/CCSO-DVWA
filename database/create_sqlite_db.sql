@@ -20,7 +20,7 @@ PRIMARY KEY (`comment_id`)
 
 insert into users values ('1','admin','admin','admin',('password'),'admin.jpg', DATE(), '0');
 insert into users values ('2','Gordon','Brown','gordonb',('abc123'),'gordonb.jpg', DATE(), '0');
-insert into users values ('3','Hack','Me','1337',('charley'),'1337.jpg', DATE(), '0');
+insert into users values ('3','Hack','ER','1337','PSU{W@TCH_tH3_SqL}','1337.jpg', DATE(), '0');
 insert into users values ('4','Pablo','Picasso','pablo',('letmein'),'pablo.jpg', DATE(), '0');
 insert into users values ('5','Bob','Smith','smithy',('password'),'smithy.jpg', DATE(), '0');;
 

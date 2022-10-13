@@ -1,17 +1,17 @@
 <?php
 
-define( 'CCSO_WEB_PAGE_TO_ROOT', '../../' );
-require_once CCSO_WEB_PAGE_TO_ROOT . 'ccso/includes/ccsoPage.inc.php';
+define( 'DVWA_WEB_PAGE_TO_ROOT', '../../' );
+require_once DVWA_WEB_PAGE_TO_ROOT . 'dvwa/includes/dvwaPage.inc.php';
 
-ccsoPageStartup( array( 'authenticated', 'phpids' ) );
+dvwaPageStartup( array( 'authenticated', 'phpids' ) );
 
-$page = ccsoPageNewGrab();
+$page = dvwaPageNewGrab();
 $page[ 'title' ]   = 'Vulnerability: SQL Injection' . $page[ 'title_separator' ].$page[ 'title' ];
 $page[ 'page_id' ] = 'sqli';
 $page[ 'help_button' ]   = 'sqli';
 $page[ 'source_button' ] = 'sqli';
 
-ccsoDatabaseConnect();
+dvwaDatabaseConnect();
 
 $method            = 'GET';
 $vulnerabilityFile = '';
@@ -31,7 +31,7 @@ switch( $_COOKIE[ 'security' ] ) {
 		break;
 }
 
-require_once CCSO_WEB_PAGE_TO_ROOT . "vulnerabilities/sqli/source/{$vulnerabilityFile}";
+require_once DVWA_WEB_PAGE_TO_ROOT . "vulnerabilities/sqli/source/{$vulnerabilityFile}";
 
 $page[ 'body' ] .= "
 <div class=\"body_padded\">
@@ -53,7 +53,7 @@ else {
 		$page[ 'body' ] .= "</select>";
 	}
 	else
-		$page[ 'body' ] .= "\n				<input type=\"text\" size=\"15\" name=\"id\">";
+		$page[ 'body' ] .= "\n				<input type=\"text\" size=\"15\" name=\"id\">\n";
 
 	$page[ 'body' ] .= "\n				<input type=\"submit\" name=\"Submit\" value=\"Submit\">
 			</p>\n";
@@ -70,13 +70,13 @@ $page[ 'body' ] .= "
 
 	<h2>More Information</h2>
 	<ul>
-		<li>" . ccsoExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/SQL_injection' ) . "</li>
-		<li>" . ccsoExternalLinkUrlGet( 'https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/' ) . "</li>
-		<li>" . ccsoExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/SQL_Injection' ) . "</li>
-		<li>" . ccsoExternalLinkUrlGet( 'https://bobby-tables.com/' ) . "</li>
+		<li>" . dvwaExternalLinkUrlGet( 'https://en.wikipedia.org/wiki/SQL_injection' ) . "</li>
+		<li>" . dvwaExternalLinkUrlGet( 'https://www.netsparker.com/blog/web-security/sql-injection-cheat-sheet/' ) . "</li>
+		<li>" . dvwaExternalLinkUrlGet( 'https://owasp.org/www-community/attacks/SQL_Injection' ) . "</li>
+		<li>" . dvwaExternalLinkUrlGet( 'https://bobby-tables.com/' ) . "</li>
 	</ul>
 </div>\n";
 
-ccsoHtmlEcho( $page );
+dvwaHtmlEcho( $page );
 
 ?>
