@@ -23,14 +23,17 @@ and any other creators/contributors to the DVWA.
 	4a. In a web browser in kali navigate to `localhost` \
 	4b. This should be a default apache page 
 7. `cd /var/www/html/CCSO-DVWA; cp config/config.inc.php.dist config/config.inc.php`
-8. `sudo su; mysql` \
-	8a. (From mysql CLI) \
+8. `sudo su`
+9. `mysql`
+	9a. (From mysql CLI) \
 			`create database ccso;` \
 			`create user ccso@localhost identified by 'p@ssw0rd';` \
 			`grant all on ccso.* to ccso@localhost;` \
 			`flush privileges;`
-9. 	`exit;`
+	 		`exit;`
 10. `cd /var/www/html/CCSO-DVWA; sudo chgrp www-data hackable/uploads`
 11. `sudo chgrp www-data /var/www/html/CCSO-DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt`
 12. `sudo chmod g+w hackable/uploads`
 13. `sudo chmod g+w /var/www/html/CCSO-DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt`
+14. Navigate to localhost/CCSO-DVWA/setup.php and press "Create / Reset Database"
+15. Login to the webapp at localhost/CCSO-DVWA/login.php with admin:password
