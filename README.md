@@ -2,7 +2,7 @@
 
 The Pennsylvania State University CCSO DVWA is a fork of digininja's Damn Vulnerable Web application \
 intended for the use by the Collegiate Penetration Testing Competition Team. It is designed for use \
-in a CTF environment to practice basic web exploits.\ 
+in a CTF environment to practice basic web exploits.
 
 NOTE: This application was originally created by digininja. While we did make many aesthetic and \
 functional changes to it, we are not the original creators of the DVWA. All credit goes to Robin Wood \
@@ -21,7 +21,7 @@ and any other creators/contributors to the DVWA.
 5. `sudo systemctl enable --now apache2`
 6. `sudo systemctl enable --now mariadb` \
 	4a. In a web browser in kali navigate to `localhost` \
-	4b. This should be a default apache page \
+	4b. This should be a default apache page 
 7. `cd /var/www/html/CCSO-DVWA; cp config/config.inc.php.dist config/config.inc.php`
 8. `sudo su; mysql` \
 	8a. (From mysql CLI) \
