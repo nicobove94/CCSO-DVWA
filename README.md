@@ -11,8 +11,8 @@ and any other creators/contributors to the DVWA.
 # Installation notes
 
 1. `git clone https://github.com/nicobove94/CCSO-DVWA.git`
-2. `sudo vim /etc/php/<VERSION>/apache2/php.ini`
-	> 2a. Note, do not type <VERSION> verbatim, replace <VERSION> with the version number of php you are running \
+2. `sudo vim /etc/php/<VERSION>/apache2/php.ini` \
+	2a. Note, do not type <VERSION> verbatim, replace <VERSION> with the version number of php you are running \
 	> 2b. Check you php version number with php -v, mine is 8.1.2 \
 	> 2c. Edit line 861 (or wherever the var is for you) -> `allow_url_fopen = On` \
 	> 2d. Edit line 865 (or wherever the var is for you) -> `allow_url_include = On`
