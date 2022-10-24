@@ -125,8 +125,6 @@ echo "<!DOCTYPE html>
 
 	<div id=\"footer\">
 
-	<p>" . dvwaExternalLinkUrlGet( 'https://github.com/digininja/DVWA/', 'Damn Vulnerable Web Application (DVWA)' ) . "</p>
-
 	</div> <!--<div id=\"footer\"> -->
 
 	</div> <!--<div id=\"wrapper\"> -->
