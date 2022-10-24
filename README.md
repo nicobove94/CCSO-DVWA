@@ -25,10 +25,10 @@ and any other creators/contributors to the DVWA.
 7. `cd /var/www/html/CCSO-DVWA; cp config/config.inc.php.dist config/config.inc.php`
 8. `sudo su; mysql`
 	> 8a. (From mysql CLI) \
-			`create database ccso;` \
-			`create user ccso@localhost identified by 'p@ssw0rd';` \
-			`grant all on ccso.* to ccso@localhost;` \
-			`flush privileges;`
+			>> `create database ccso;` \
+			>> `create user ccso@localhost identified by 'p@ssw0rd';` \
+			>> `grant all on ccso.* to ccso@localhost;` \
+			>> `flush privileges;`
 9. `cd /var/www/html/CCSO-DVWA; sudo chgrp www-data hackable/uploads`
 10. `sudo chgrp www-data /var/www/html/CCSO-DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt`
 11. `sudo chmod g+w hackable/uploads`
