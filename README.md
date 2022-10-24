@@ -9,6 +9,7 @@ functional changes to it, we are not the original creators of the DVWA. All cred
 and any other creators/contributors to the DVWA.
 
 # Installation notes
+`
 1. git clone https://github.com/nicobove94/CCSO-DVWA.git
 2. sudo vim /etc/php/<VERSION>/apache2/php.ini
 	2a. Note, do not type <VERSION> verbatim, replace <VERSION> with the version number of php you are running
@@ -33,3 +34,4 @@ and any other creators/contributors to the DVWA.
 11. sudo chgrp www-data /var/www/html/CCSO-DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
 12. sudo chmod g+w hackable/uploads
 13. sudo chmod g+w /var/www/html/CCSO-DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt
+`
