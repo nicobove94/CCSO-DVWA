@@ -24,7 +24,7 @@ and any other creators/contributors to the DVWA.
 	4b. This should be a default apache page 
 7. `cd /var/www/html/CCSO-DVWA; cp config/config.inc.php.dist config/config.inc.php`
 8. `sudo su`
-9. `mysql`
+9. `mysql`\
 	9a. (From mysql CLI) \
 			`create database ccso;` \
 			`create user ccso@localhost identified by 'p@ssw0rd';` \
