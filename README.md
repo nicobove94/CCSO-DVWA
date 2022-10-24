@@ -29,7 +29,7 @@ and any other creators/contributors to the DVWA.
 			`create user ccso@localhost identified by 'p@ssw0rd';` \
 			`grant all on ccso.* to ccso@localhost;` \
 			`flush privileges;`
-9. 		`exit;`
+9. 	`exit;`
 10. `cd /var/www/html/CCSO-DVWA; sudo chgrp www-data hackable/uploads`
 11. `sudo chgrp www-data /var/www/html/CCSO-DVWA/external/phpids/0.6/lib/IDS/tmp/phpids_log.txt`
 12. `sudo chmod g+w hackable/uploads`
