@@ -59,7 +59,14 @@ $page[ 'body' ] .= "
 		<li>" . dvwaExternalLinkUrlGet( 'http://www.cgisecurity.com/xss-faq.html' ) . "</li>
 		<li>" . dvwaExternalLinkUrlGet( 'http://www.scriptalert1.com/' ) . "</li>
 	</ul>
+	<form method=\"POST\">
+		<input type=\"submit\" value=\"HINT\" name=\"hintbutton\">
+
 </div>\n";
+
+if(isset($_POST["hintbutton"])) {
+	echo "<script>alert('The flag is contained within flag.js')</script>";
+}
 
 dvwaHtmlEcho( $page );
 
